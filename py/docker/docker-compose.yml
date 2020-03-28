@@ -1,0 +1,9 @@
+
+version: '2.0'
+services:
+  ml:
+    build: ./
+    container_name: py
+    volumes:
+      - ../:/home/kindlytree
+    command: "tail -f /dev/null"
