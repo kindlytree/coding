@@ -134,3 +134,25 @@ t0 = PythonOperator(
 
 t0
 ```
+
+## logging
+```
+import logging
+logging.basicConfig(level=logging.INFO)
+logging.critical('{} directory path not exist!!!'.format(data_path))
+logging.info('inference type is {} '.format(infer_type))
+```
+
+## docker compose
+version: '2.3'
+services:
+  dfs:
+    build:
+     context: ../../******/docker
+     dockerfile: Dockerfile
+    container_name: test
+    shm_size: '2gb'
+    working_dir: /path/to/working_dir
+    volumes:
+      - ../../:/home/to/path
+    command: "tail -f /dev/null"
