@@ -1,7 +1,7 @@
 # pandas
 
 ## basics
-- 选取制定列
+- 选取特定列
 ```
 mydf[['city_name','code','country_ISO_Code','Sub_Region_Code']]
 ```
