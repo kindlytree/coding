@@ -22,3 +22,11 @@ python3中的map 转list  list（map（fun，your_list））
 time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
 ```
 
+## venv
+
+```
+python3 -m venv env
+source env/bin/activate
+deactivate
+
+```

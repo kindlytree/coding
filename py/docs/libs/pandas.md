@@ -124,3 +124,17 @@ def iou_join(group_df, IOU_thresh):
     return (intersection/union)   
 ```
 
+## df['ImageName'].unique().tolist()
+
+## FAQ
+
+### How to select rows from a DataFrame based on column values?
+https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
+
+### How to iterate over rows in a DataFrame in Pandas?
+https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas
+
+```
+for index, row in df.iterrows():
+    print(row['c1'], row['c2'])
+```
