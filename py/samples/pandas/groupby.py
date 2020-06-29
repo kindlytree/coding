@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     test2 = df.groupby('url').apply(lambda x: test_f(x))
 
-    #test2 = test2.reset_index().sort_values(by=)
+    #test2 = test2.reset_index().sort_values(by=0)
 
     import IPython
     IPython.embed(colors="Linux")
