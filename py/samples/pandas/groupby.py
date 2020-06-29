@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 import pandas as pd
-
+import numpy as np
 '''
 pip3 install pandas -i https://pypi.douban.com/simple
 pip3 install ipython -i https://pypi.douban.com/simple
 '''
+
+def test_f(x):
+  return np.random.rand(1)
+
 
 if __name__ == "__main__":
     #df = pd.read_csv('/home/lsxu/Documents/clobotics/val/debug_results.csv', encoding='utf-8')
@@ -33,7 +37,6 @@ if __name__ == "__main__":
 
     df_b = df.copy(deep=True)
 
-
     # df_b.add_suffix('_b')
     # df_b.add_suffix('_b')
     df_b = df_b.add_suffix('_b')
@@ -55,8 +58,14 @@ if __name__ == "__main__":
     xx = df_h.apply(lambda v: max(3.0, v))
 
     print('xx is: ', xx)
-    # import IPython
-    # IPython.embed(colors="Linux"
+
+    test2 = df.groupby('url').apply(lambda x: test_f(x))
+
+    #test2 = test2.reset_index().sort_values(by=)
+
+    import IPython
+    IPython.embed(colors="Linux")
+
     #test.loc['http://localhost/a']
     '''
 In [34]: test2                                                                                                                                
