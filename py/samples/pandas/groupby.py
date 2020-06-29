@@ -39,13 +39,24 @@ if __name__ == "__main__":
     df_b = df_b.add_suffix('_b')
     df_b.rename(columns={'url_b':'url'}, inplace=True)
     df_c = df.append(df_b)
+    df_d = df.append(df_b).reset_index()
 
-    print(df_c)
+    df_e = df_d[['url','clicked_b']].dropna()
 
+    print(df_c, '\n', df_d, '\n', df_e)
+
+    df_h = df_d['clicked_b'].dropna()
+
+    print('df_h is :', df_h)
+
+    df_hh = df_d[['clicked_b']].dropna()
+    print('df_hh is :', df_hh)
+    #xx = df_h.apply(lambda v: print(v))
+    xx = df_h.apply(lambda v: max(3.0, v))
+
+    print('xx is: ', xx)
     # import IPython
-    # IPython.embed(colors="Linux")
-
-
+    # IPython.embed(colors="Linux"
     #test.loc['http://localhost/a']
     '''
 In [34]: test2                                                                                                                                
