@@ -1,0 +1,65 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+import pandas as pd
+import numpy as np
+'''
+pip3 install pandas -i https://pypi.douban.com/simple
+pip3 install ipython -i https://pypi.douban.com/simple
+'''
+
+def test_f(x):
+  return np.random.rand(1)
+
+def test2(row):
+  print(row)
+  return row['url']
+
+
+if __name__ == "__main__":
+    #df = pd.read_csv('/home/lsxu/Documents/clobotics/val/debug_results.csv', encoding='utf-8')
+    #df = pd.read_csv('/home/lsxu/Documents/clobotics/val/sku_classification_ccth-sku_20200430_eval_val20200430_only_newchannels_sku0430_sb0430_unit0329_rtd0424_e2e_retail_validation_debug_results.csv', encoding='utf-8')
+    #df.describe()
+    
+    df = pd.DataFrame({'url': 
+                ['http://localhost/a',
+                 'http://localhost/b',
+                 'http://localhost/a',
+                 'http://localhost/c',
+                 'http://localhost/b',
+                 'http://localhost/d',
+                  ], 
+                'clicked': [
+                    3, 
+                    4, 
+                    5,
+                    6,
+                    3,
+                    4]})
+
+    df2 = pd.DataFrame({'url': 
+                ['http://localhost/a',
+                 'http://localhost/b',
+                 'http://localhost/a',
+                 'http://localhost/c',
+                 'http://localhost/b',
+                 'http://localhost/d',
+                  ], 
+                'viewed': [
+                    3, 
+                    4, 
+                    5,
+                    6,
+                    3,
+                    4]})
+    
+    df3 = df.append(df2)
+
+    df['url_copy'] = df.apply(lambda row: test2(row), axis=1)
+
+    # rows_count = df.count()
+    rows_count = len(df.index)
+
+    row_0 = df.loc[0]
+
+    import IPython
+    IPython.embed(colors="Linux")
