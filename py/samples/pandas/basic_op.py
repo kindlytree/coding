@@ -61,5 +61,22 @@ if __name__ == "__main__":
 
     row_0 = df.loc[0]
 
+
+    df_sampeled = None
+    product_ids = df_filtered['ProductId'].unique().tolist()
+    for product_id in product_ids:
+      df_product = df_filtered[df_filtered['ProductId'] == product_id]
+      df_product_count = len(df_product.index)
+      if df_product_count > args.max_sample_count:
+        df_product = df_product.sample(n= args.max_sample_count, random_state=1)
+      df_sampeled = pd.concat([df_sampeled, df_product])
+
+    df_sampeled.to_csv(dest_csv_file)
+
+    df_skuid_skuname = df_ine_performance[df_ine_performance['SkuId'].isin(product_ids)][['SkuId', 'SkuName']]
+    dest_skuid_name_file = os.path.join(dest_csv_folder, 'filterd_sku.csv')
+    df_skuid_skuname.to_csv(dest_skuid_name_file, index=False)
+
+
     import IPython
     IPython.embed(colors="Linux")
