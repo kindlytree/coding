@@ -78,5 +78,12 @@ if __name__ == "__main__":
     df_skuid_skuname.to_csv(dest_skuid_name_file, index=False)
 
 
+'''
+df_rare_sku_collections = pd.DataFrame()
+df_rare_sku_collections = df_rare_sku_collections.append(df_sampled_rare_sku)
+not_in_sku_labels_skus = df_ground_truth[~df_ground_truth['ProductId'].isin(sku_labels)]['ProductId'].unique().tolist()
+df_sampled_rare_sku = df_rare_sku.sample(n= max_sampler_size, random_state=1)
+
+'''
     import IPython
     IPython.embed(colors="Linux")
