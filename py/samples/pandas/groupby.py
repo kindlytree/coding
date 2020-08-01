@@ -63,6 +63,15 @@ if __name__ == "__main__":
 
     #test2 = test2.reset_index().sort_values(by=0)
 
+
+    skuid_stat = df.groupby(['ProductId']).size()
+    skuid_stat_ = skuid_stat.reset_index()
+    # print(df_tmp)
+    skuid_stat_.rename(columns={0:'count'}, inplace=True)
+
+    skuid_stat_ascending = skuid_stat_.sort_values(by='count', ascending=True)
+
+    
     import IPython
     IPython.embed(colors="Linux")
 
