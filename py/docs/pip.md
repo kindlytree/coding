@@ -25,3 +25,11 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
 NumPy 1.16.0 是最后一个支持 Python 2.7 的版本
 
 pip list
+
+linux: 
+修改 ~/.pip/pip.conf (没有就创建一个)， 内容如下：
+pip config set global.index-url https://****
+
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+
